@@ -1,0 +1,837 @@
+---
+permalink: /contactologia/
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="{{ '/logo.png' | relative_url }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lentes de contacto especiales (contactología) - Yoel Vera Zapata</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary-navy: #031345;
+      --primary-navy-hover: #08216b;
+      --bg-light-btn: #f1f5f9;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --bg-footer: #031345;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Header / Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background-color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--primary-navy);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--primary-navy); }
+
+    .dropdown { position: relative; }
+
+    .dropdown > a::after {
+      content: ' ▾';
+      font-size: 0.8em;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 250px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 0.8rem 0;
+      list-style: none;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-menu { display: block; }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 1.2rem;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #f8fafc;
+      color: var(--primary-navy);
+      font-weight: 600;
+    }
+
+    .btn-cita {
+      background-color: var(--primary-navy);
+      color: #ffffff !important;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-cita:hover {
+      background-color: var(--primary-navy-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Página de especialidad */
+    .specialty-page {
+      padding: 4.5rem 5% 5rem;
+    }
+
+    .specialty-container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary-navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .specialty-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3.5rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+
+    .specialty-eyebrow {
+      color: var(--primary-navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.8rem;
+    }
+
+    .specialty-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.12;
+      color: var(--primary-navy);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .specialty-intro p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      max-width: 690px;
+    }
+
+    .specialty-intro ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .specialty-intro li {
+      margin-bottom: 0.5rem;
+    }
+
+    .specialty-image {
+      min-height: 430px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #e2e8f0;
+      box-shadow: 0 16px 35px rgba(3, 19, 69, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 0;
+    }
+
+    .specialty-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .faq-section {
+      background: #f8fafc;
+      padding: 4rem;
+      border-radius: 28px;
+    }
+
+    .faq-eyebrow {
+      color: var(--primary-navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-title {
+      font-size: 2.2rem;
+      color: var(--primary-navy);
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    details.faq-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    details.faq-item summary {
+      padding: 1.2rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    details.faq-item summary::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    details.faq-item[open] summary::after { transform: rotate(180deg); }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-muted);
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+    }
+
+    .cta-box {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-footer);
+      color: #ffffff;
+      padding: 3.5rem 5% 2rem;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-brand h3 {
+      margin-bottom: 0;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-col i {
+      margin-top: 4px;
+      width: 16px;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .footer-col p strong { color: #ffffff; }
+    .footer-col a:hover { color: #ffffff; }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .social-btn {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem !important;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0 !important;
+    }
+
+    .social-btn i {
+      margin-top: 0;
+      color: inherit;
+    }
+
+    .social-btn:hover { background: rgba(255, 255, 255, 0.25); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+
+      .specialty-hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .specialty-image {
+        min-height: 320px;
+      }
+
+      .specialty-image img {
+        min-height: 320px;
+      }
+
+      .faq-section {
+        padding: 2rem;
+      }
+    }
+
+    /* Navegación móvil lateral y ajustes de diseño */
+    .menu-toggle, .menu-backdrop { display: none; }
+
+    @media (max-width: 900px) {
+      header {
+        flex-wrap: wrap;
+        gap: .75rem 1rem;
+        padding: .8rem 4%;
+      }
+
+      .logo-img { height: 42px; }
+      .logo-text { font-size: .95rem; }
+
+      header nav {
+        order: 3;
+        flex: 0 0 100%;
+        min-width: 0;
+      }
+
+      header nav ul {
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: .35rem;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        padding: .15rem 0 .45rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      header nav ul > li,
+      header nav .dropdown-menu li { flex: 0 0 auto; }
+      header nav ul.dropdown-menu { display: contents; }
+      header nav a { min-height: 40px; }
+
+      .menu-toggle { display: none; }
+      .menu-backdrop { display: none; }
+
+      .hero, .specialty-hero, .about-grid, .about-grid.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.75rem;
+      }
+
+      .hero { padding: 2.5rem 5%; }
+      .hero-title { font-size: clamp(2rem, 6vw, 2.6rem); }
+      .hero-image img { height: auto; max-height: 440px; aspect-ratio: 4 / 3; }
+      .hero-actions { flex-wrap: wrap; justify-content: center; }
+      .specialty-hero, .course-card, .event-card { grid-template-columns: minmax(0, 1fr); }
+      .specialty-image, .course-image, .event-image { width: 100%; max-width: 100%; }
+      .about-image img { height: auto; max-height: 380px; }
+      .contact-images-grid, .contact-info-grid { grid-template-columns: minmax(0, 1fr); }
+      .form-row { grid-template-columns: minmax(0, 1fr); }
+      .specialties-section, .reviews-section { padding: 3.5rem 5%; }
+      .specialty-container, .contact-container, .faq-container, .courses-container,
+      .events-container, .about-container, .legal-container { width: min(100% - 2rem, 100%); }
+      .footer-container { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      body { overflow-x: hidden; }
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: .5rem;
+        padding: .7rem 1rem;
+      }
+      .logo-container { gap: .5rem; min-width: 0; }
+      .logo-img { height: 36px; }
+      .logo-text { font-size: .78rem; letter-spacing: 0; }
+      .btn-cita { font-size: .84rem; padding: .55rem .8rem; white-space: nowrap; }
+
+      .menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        grid-row: 1;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: #fff;
+        color: var(--primary-navy);
+        cursor: pointer;
+        z-index: 1202;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 2px;
+        background: currentColor;
+        transition: transform .2s ease, opacity .2s ease;
+      }
+      .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+
+      header nav {
+        display: block;
+        position: fixed;
+        z-index: 1201;
+        inset: 0 0 0 auto;
+        width: min(86vw, 360px);
+        height: 100dvh;
+        padding: 5.5rem 1.25rem 2rem;
+        overflow-y: auto;
+        background: #fff;
+        box-shadow: -12px 0 35px rgba(3, 19, 69, .16);
+        transform: translateX(110%);
+        visibility: hidden;
+        transition: transform .25s ease, visibility .25s ease;
+      }
+      header nav.is-open { transform: translateX(0); visibility: visible; }
+      header nav ul,
+      header nav ul.dropdown-menu {
+        display: flex !important;
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        box-shadow: none;
+        border: 0;
+      }
+      header nav ul > li,
+      header nav .dropdown-menu li { display: block; flex: none; }
+      header nav a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 48px;
+        padding: .65rem .4rem;
+        border-bottom: 1px solid #e2e8f0;
+        white-space: normal;
+        font-size: 1rem;
+      }
+      header nav .dropdown-menu { display: none !important; padding: 0 0 0 .8rem; }
+      header nav .dropdown.open > .dropdown-menu { display: flex !important; }
+      header nav .dropdown-menu a { font-size: .92rem; color: var(--text-muted); }
+      .menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        padding: 0;
+        border: 0;
+        background: rgba(3, 19, 69, .42);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .25s ease, visibility .25s ease;
+      }
+      .menu-backdrop.is-visible { opacity: 1; visibility: visible; }
+      body.menu-open { overflow: hidden; }
+
+      main { padding: 2rem 1rem; }
+      .hero { padding: 2rem 1rem; gap: 1.5rem; }
+      .hero-title, .page-title, .specialty-title, .coming-soon-title { font-size: clamp(1.75rem, 8vw, 2.2rem); }
+      .section-title, .reviews-title, .faq-title { font-size: clamp(1.55rem, 7vw, 1.9rem); }
+      .hero-text, .page-description { font-size: 1rem; }
+      .hero-image img { max-height: 340px; border-radius: 20px; }
+      .hero-actions > a, .coming-soon-actions > a { width: 100%; text-align: center; }
+      .coming-soon-card { padding: 2.25rem 1.25rem; border-radius: 20px; }
+      .specialties-section, .reviews-section, .about-section { padding: 2.75rem 1rem; }
+      .specialties-grid, .reviews-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+      .specialty-card { max-width: none; }
+      .specialty-body, .review-card { padding: 1.25rem; }
+      .page-header { padding: 2rem 1rem; }
+      .specialty-page, .contact-page, .faq-page, .courses-page, .events-page { padding: 2rem 1rem; }
+      .specialty-container, .contact-container, .faq-container, .courses-container,
+      .events-container, .about-container, .legal-container { width: 100%; padding-left: 0; padding-right: 0; }
+      .specialty-intro, .form-wrapper, .faq-cta-box, .cta-box { padding: 1.25rem; }
+      .course-card, .event-card { border-radius: 16px; }
+      .contact-img-card { height: 210px; }
+      .footer-container { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+      footer { padding: 2.5rem 1rem 1.5rem; }
+      .footer-bottom { line-height: 1.6; }
+      .form-control, button, input, select, textarea { max-width: 100%; }
+      .form-control, input, select, textarea { font-size: 16px; }
+      img, video, iframe { max-width: 100%; }
+      p, li, a { overflow-wrap: anywhere; }
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="{{ '/' | relative_url }}#inicio" class="logo-container">
+      <img src="{{ '/logo.png' | relative_url }}" alt="Logo Yoel Vera Zapata" class="logo-img">
+      <span class="logo-text">Yoel Vera Zapata</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+    <button class="menu-backdrop" type="button" aria-label="Cerrar menú"></button>
+    <nav id="site-navigation">
+      <ul>
+        <li><a href="{{ '/' | relative_url }}#inicio">Inicio</a></li>
+        <li><a href="{{ '/sobre-mi/' | relative_url }}">Sobre mí</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0);" style="cursor: default;">Especialidades</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/optometria-general/' | relative_url }}">Optometría general</a></li>
+            <li><a href="{{ '/optometria-pediatrica/' | relative_url }}">Optometría pediátrica</a></li>
+            <li><a href="{{ '/ojo-seco/' | relative_url }}">Ojo seco</a></li>
+            <li><a href="{{ '/estrabismo-ojo-vago/' | relative_url }}">Estrabismo y ojo vago</a></li>
+            <li><a href="{{ '/terapia-visual/' | relative_url }}">Terapia visual</a></li>
+            <li><a href="{{ '/contactologia/' | relative_url }}">Lentes de contacto especiales (contactología)</a></li>
+            <li><a href="{{ '/control-miopia/' | relative_url }}">Control de miopía</a></li>
+            <li><a href="{{ '/oftalmologia/' | relative_url }}"><em>Oftalmología</em></a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0);" style="cursor: default;">Cursos y Formaciones</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/tutorias/' | relative_url }}">Tutorías</a></li>
+            <li><a href="{{ '/formaciones/' | relative_url }}">Formaciones</a></li>
+            <li><a href="{{ '/cursos/' | relative_url }}">Cursos</a></li>
+            <li><a href="{{ '/proximos-eventos/' | relative_url }}">Próximos eventos</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ '/faq/' | relative_url }}">Preguntas Frecuentes</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+        <li><a href="{{ '/contacto/' | relative_url }}">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://wa.me/34654567167?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20una%20consulta"
+       target="_blank"
+       class="btn-cita">
+      Pedir cita
+    </a>
+  </header>
+
+  <main>
+    <section class="specialty-page">
+      <div class="specialty-container">
+
+        <div class="breadcrumb">
+          <a href="{{ '/' | relative_url }}#inicio">Inicio</a> ·
+          <a href="{{ '/' | relative_url }}#especialidades">Especialidades</a> ·
+          Lentes de contacto especiales (contactología)
+        </div>
+
+        <div class="specialty-hero">
+          <div class="specialty-intro">
+            <p class="specialty-eyebrow">Especialidad</p>
+            <h1 class="specialty-title">Lentes de contacto especiales (contactología)</h1>
+
+            <p>
+              Existen córneas complejas y condiciones visuales donde las gafas o las lentillas convencionales no pueden ofrecer una visión nítida ni cómoda. En el área de contactología avanzada, adapto lentes de diseño individualizadas utilizando topografía corneal de alta precisión. Estas lentes están indicadas para queratocono, astigmatismos elevados, traumatismos, ectasias (queratocono, degeneración marginal pelúcida, trasplante de córnea, tras una cirugía refractiva…) o pacientes con ojo seco severo.
+            </p>
+
+            <p>
+              Trabajo únicamente con fabricantes de primera categoría, materiales hiperpermeables al oxígeno y geometrías a medida, destacando la adaptación de lentes de ortoqueratología (lentillas nocturnas, que se ponen sólo para dormir) y lentes esclerales.
+            </p>
+
+            <ul>
+              <li><strong>Ortoqueratología (ORTO-K):</strong> son una solución innovadora que permite corregir temporalmente la miopía mientras duermes, de manera que al despertar, disfrutas de una visión nítida sin gafas ni lentillas. Una opción cómoda, segura, reversible y personalizada para quienes buscan mayor libertad visual.</li>
+              <li><strong>Lentes esclerales:</strong> estas lentes de mayor diámetro se apoyan en la esclera (la parte blanca del ojo) sin tocar la córnea, creando una bóveda de lágrima que actúa como una nueva superficie óptica perfecta, garantizando una agudeza visual máxima y un confort inigualable durante todo el día.</li>
+            </ul>
+
+          </div>
+
+          <div class="specialty-image">
+            <img src="{{ '/lentes de contacto especiales.jpg' | relative_url }}" alt="Lentes de contacto especiales">
+          </div>
+        </div>
+
+        <section class="faq-section">
+          <p class="faq-eyebrow"></p>
+          <h2 class="faq-title">Preguntas frecuentes</h2>
+
+          <div class="faq-list">
+
+            <details class="faq-item">
+              <summary>Me han dicho que no puedo llevar lentillas… ¿qué hago?</summary>
+              <div class="faq-answer">
+                <p>
+                  Prueba con lentillas esclerales. Son lentes específicas para pacientes que normalmente no pueden llevar lentillas. Se utilizan en muchas patologías como trasplantes de córnea o queratitis, ojo seco, tras haberse operado de miopía…
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>No quiero usar gafas ni lentillas y no quiero operarme… ¿qué hago?</summary>
+              <div class="faq-answer">
+                <p>
+                  Si no quieres usar gafas, lentillas ni someterte a cirugía, las lentillas Orto-K (ortoqueratología) pueden ser una excelente alternativa. Son lentillas de uso nocturno que, mientras duermes, modifican temporalmente la forma de la córnea para que durante el día puedas ver con claridad sin llevar gafas ni lentillas. Es un tratamiento reversible y personalizado que debe ser adaptado y supervisado por un profesional de la visión tras valorar tu graduación y la salud de tus ojos.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Son incómodas las lentes especiales?</summary>
+              <div class="faq-answer">
+                <p>
+                  Al contrario. Aunque sean rígidas, al estar fabricadas a medida mediante mapas topográficos de tu ojo y no rozar la zona sensible de la córnea (en el caso de las esclerales), resultan extremadamente cómodas.
+                </p>
+              </div>
+            </details>
+
+          </div>
+
+          <div class="cta-box">
+            <p>¿Tienes dudas sobre las lentes especiales o necesitas una adaptación a medida?</p>
+            <a href="https://wa.me/34654567167?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20una%20consulta"
+               target="_blank"
+               class="btn-cita">
+              Pedir cita
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <div class="footer-brand">
+          <img src="{{ '/logo.png' | relative_url }}" alt="Logo Yoel Vera Zapata">
+          <h3>Yoel Vera Zapata</h3>
+        </div>
+        <p>Especialista en Optometría y Salud Ocular.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Consulta y Contacto</h3>
+        <p>
+          <i class="fa-solid fa-location-dot"></i> 
+          <span><strong>Murcia:</strong> Hospital Mesa del Castillo, C. Rda. Sur, 20, 30010, Murcia</span>
+        </p>
+        <p>
+          <i class="fa-solid fa-location-dot"></i> 
+          <span><strong>Cartagena:</strong> Clínica VISTA Ircovisión, C. Juan Fernandez, 7, 30204 Cartagena</span>
+        </p>
+        <p>
+          <i class="fa-solid fa-phone"></i> 
+          <span>Llamadas y WhatsApp: <a href="tel:654567167">654 56 71 67</a></span>
+        </p>
+        <p>
+          <i class="fa-regular fa-calendar-check"></i> 
+          <a href="{{ '/contacto/' | relative_url }}" target="_blank">Pide cita AQUÍ</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sígueme en redes sociales</h3>
+        <div class="social-links">
+          <a href="https://share.google/acAovuU72B6yNQDen" target="_blank" class="social-btn">
+            <i class="fa-brands fa-google"></i> Google
+          </a>
+          <a href="https://www.instagram.com/yoelverazapata/" target="_blank" class="social-btn">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/yoelverazapata/" target="_blank" class="social-btn">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a href="https://www.facebook.com/people/Enfoca-Visi%C3%B3n/61557532261503/" target="_blank" class="social-btn">
+            <i class="fa-brands fa-facebook-f"></i> Facebook
+          </a>
+          <a href="https://www.tiktok.com/@enfocavision" target="_blank" class="social-btn">
+            <i class="fa-brands fa-tiktok"></i> TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yoel Vera Zapata. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('header nav');
+      const toggle = document.querySelector('.menu-toggle');
+      const backdrop = document.querySelector('.menu-backdrop');
+      if (!nav || !toggle || !backdrop) return;
+
+      const setMenuOpen = (open) => {
+        nav.classList.toggle('is-open', open);
+        backdrop.classList.toggle('is-visible', open);
+        document.body.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      };
+
+      toggle.addEventListener('click', () => setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      backdrop.addEventListener('click', () => setMenuOpen(false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenuOpen(false);
+      });
+      nav.querySelectorAll('.dropdown > a').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (window.matchMedia('(max-width: 600px)').matches) {
+            event.preventDefault();
+            link.parentElement.classList.toggle('open');
+          }
+        });
+      });
+      nav.querySelectorAll('a').forEach((link) => {
+        if (!link.matches('.dropdown > a')) link.addEventListener('click', () => setMenuOpen(false));
+      });
+      window.matchMedia('(min-width: 601px)').addEventListener('change', () => setMenuOpen(false));
+    });
+  </script>
+
+</body>
+</html>
